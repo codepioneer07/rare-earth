@@ -1,11 +1,24 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib
+import platform
+
+# 한글 폰트 설정
+if platform.system() == 'Windows':
+    plt.rc('font', family='Malgun Gothic')
+elif platform.system() == 'Darwin':  # macOS
+    plt.rc('font', family='AppleGothic')
+else:  # Linux (Streamlit Cloud 포함)
+    plt.rc('font', family='NanumGothic')
+
+# 마이너스 깨짐 방지
+matplotlib.rcParams['axes.unicode_minus'] = False
 
 # -----------------------------
 # 1. 데이터 입력
 # -----------------------------
-st.title("🌏 희토류 수입 차단 시뮬레이션 (한국 기준)")
+st.title("희토류 수입 차단 시뮬레이션 (한국 기준)")
 
 # 예시 수입 데이터 (톤 단위)
 data = {
