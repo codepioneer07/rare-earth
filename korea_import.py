@@ -64,16 +64,16 @@ st.markdown(f"""
 # -----------------------------
 st.subheader("📉 수입량 변화 시각화")
 before = pd.DataFrame({
-    '구분': ['기존 총수입'],
+    '구분': ['Before'],
     '수입량': [total_import]
 })
 after = pd.DataFrame({
-    '구분': ['시뮬레이션 후'],
+    '구분': ['After'],
     '수입량': [new_total_import]
 })
 compare_df = pd.concat([before, after])
 
 fig, ax = plt.subplots()
 ax.bar(compare_df['구분'], compare_df['수입량'], color=['skyblue', 'salmon'])
-ax.set_ylabel('수입량 (톤)')
+ax.set_ylabel('Quantity (t)')
 st.pyplot(fig)
